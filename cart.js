@@ -1,6 +1,6 @@
 'use-strict';
 
-var myapp = angular.module('skapp', [])
+angular.module('skapp', [])
   .controller('SkbuyCon', BuyCon)
   .controller('SkboughtCon', BoughtCon)
   .service('CartService', CartService)
@@ -8,27 +8,36 @@ var myapp = angular.module('skapp', [])
 BuyCon.$inject = ['CartService'];
 function BuyCon(CartService){
   var skbuycon = this;
-  skbuycon.addToBuy = function(){
-    CartService.addToBuy(index);
+  skbuycon.addToBought = function(index){
+    CartService.addToBought(index);
   };
   skbuycon.tobuy = CartService.getBuy();
+  skbuycon.bstyle = {
+    color: 'green',
+    align: 'center'
+  }
+
 }
 
 BoughtCon.$inject = ['CartService'];
 function BoughtCon(CartService){
   var skbcon = this;
-  skbcon.addToBought = function(){
-    CartService.addToBought(index);
+  skbcon.addToBuy = function(index){
+    CartService.addToBuy(index);
   };
   skbcon.bought = CartService.getBought();
+  skbcon.bstyle = {
+    color: 'green',
+    align: 'center'
+  }
 }
 
 function CartService(){
   var service = this;
-  var tobuy = [{name: "Apple", quant: "10"}, {name: "Cookies", quant: "4"}, {name: "Chips", quant: "6"}, {name: "Mango", quant: "4"}];
+  var tobuy = [{name: "Apple", quant: "10"}, {name: "Cookies", quant: "4"}, {name: "Chips", quant: "6"}, {name: "Spaceman Cad", quant: "4"}, {name: "Walmart Coupons", quant: "4"}, {name: "Mango", quant: "4"}];
   var bought = [];
 
-  service.addToBought(index){
+  service.addToBought = function(index){
     /*var item = {
       name: iname,
       quant: iquant
@@ -37,7 +46,7 @@ function CartService(){
     tobuy.splice(index, 1);
   };
 
-  service.addToBuy(index){
+  service.addToBuy = function(index){
     /*var item = {
       name: iname,
       quant: iquant
@@ -46,11 +55,11 @@ function CartService(){
     bought.splice(index, 1);
   };
 
-  service.getBuy(){
+  service.getBuy = function(){
     return tobuy;
   };
 
-  service getBought(){
+  service.getBought = function(){
     return bought;
   }
 }

@@ -2,25 +2,29 @@
 <html ng-app = "skapp">
 <head>
   <title>Own Your Cart</title>
-  <sricpt src = "cart.js"></script>
-  <script src = "angular.min.js"></script>
+  <script src = "angular.js"></script>
+  <script src = "cart.js"></script>
+  <link rel = "stylesheet" href = "main.css" />
 </head>
 <body>
-  <div ng-controller = "SkbuyCon as skbuycon">
-    <ol>
-      <li ng-repeat = "item in skbuycon.tobuy">
-        Buy {{item.quant}}  {{item.quant}}
-        <input type = "button" ng-click = "skbuycon.addToBuy($index)">Buy</input>
-      <li>
-    </ol>
+  <div ng-controller = "SkbuyCon as skbuycon" class = "buy">
+    <h1>Buy Items Here</h1>
+    <table>
+      <tr ng-repeat = "item in skbuycon.tobuy">
+        <td>Buy {{item.quant}}  {{item.name}}</td>
+        <td><input type = "button" ng-click = "skbuycon.addToBought($index)" value = "Buy"></input></td></tr>
+    </table>
+    <p ng-show = "skbuycon.tobuy[0] === undefined" ng-style = "skbuycon.bstyle">All Items are bought</p>
   </div>
-  <div ng-controller = "SkboughtCon as skbcon">
-    <ol>
-      <li ng-repeat = "item in skbcon.bought">
-        Buy {{item.quant}}  {{item.quant}}
-        <input type = "button" ng-click = "skbcon.addToBought($index)">Buy</input>
-      <li>
-    </ol>
+  <div ng-controller = "SkboughtCon as skbcon" class = "bought">
+    <h1>Items Bought</h1>
+    <table>
+      <tr ng-repeat = "item in skbcon.bought">
+        <td>Buy {{item.quant}}  {{item.name}}</td>
+        <td><input type = "submit" ng-click = "skbcon.addToBuy($index)" value = "Remove"></input></td>
+      </tr>
+    </table>
+    <p ng-show = "skbcon.bought[0] === undefined" ng-style = "skbcon.bstyle">No item is bought yet.</p>
   </div>
 </body>
 </html>
