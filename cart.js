@@ -34,7 +34,7 @@ function BoughtCon(CartService){
 
 function CartService(){
   var service = this;
-  var tobuy = [{name: "Apple", quant: "10"}, {name: "Cookies", quant: "4"}, {name: "Chips", quant: "6"}, {name: "Spaceman Cad", quant: "4"}, {name: "Walmart Coupons", quant: "4"}, {name: "Mango", quant: "4"}];
+  var tobuy = [{name: "Apple", quant: "10"}, {name: "Cookies", quant: "4"}, {name: "Chips", quant: "6"}, {name: "Spaceman Cad", quant: "4"}, {name: "Walmart Coupons", quant: "4"}, {name: "Mango", quant: "4"}, {name: "Xperia Z5 Premium", quant: 5}];
   var bought = [];
 
   service.addToBought = function(index){

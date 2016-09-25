@@ -12,9 +12,9 @@
     <table>
       <tr ng-repeat = "item in skbuycon.tobuy">
         <td>Buy {{item.quant}}  {{item.name}}</td>
-        <td><input type = "button" ng-click = "skbuycon.addToBought($index)" value = "Buy"></input></td></tr>
+        <td><input type = "button" ng-click = "skbuycon.addToBought($index)" value = "Bought"></input></td></tr>
     </table>
-    <p ng-show = "skbuycon.tobuy[0] === undefined" ng-style = "skbuycon.bstyle">All Items are bought</p>
+    <p ng-show = "skbuycon.tobuy[0] === undefined" ng-style = "skbuycon.bstyle">Everything is bought</p>
   </div>
   <div ng-controller = "SkboughtCon as skbcon" class = "bought">
     <h1>Items Bought</h1>
@@ -24,7 +24,7 @@
         <td><input type = "submit" ng-click = "skbcon.addToBuy($index)" value = "Remove"></input></td>
       </tr>
     </table>
-    <p ng-show = "skbcon.bought[0] === undefined" ng-style = "skbcon.bstyle">No item is bought yet.</p>
+    <p ng-show = "skbcon.bought[0] === undefined" ng-style = "skbcon.bstyle">Nothing bought yet.</p>
   </div>
 </body>
 </html>
